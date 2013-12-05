@@ -1,0 +1,42 @@
+<!--DOCTYPE html-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Raffler</title>
+<link rel="stylesheet" href="raffler.css" media="screen">
+</head>
+<body>
+	<header id="header">
+    <h1>Raffler</h1>
+	</header>
+	<section id="raffler">
+	<div id="container">
+	
+
+		<script type="text/template" id="item-template">
+		<div id="new-ent">
+		<input id="new_entry"  size="60" autofocus style="width:100%"/>
+		<input type="submit" value="Add" id="new"/>
+		</div>
+		<div id="winners">
+
+			<ul>
+			  <% _.each(entries, function(entry){ %>
+					<li class='list_item' id='<%- entry.id %>'><%- entry.name %>
+					<span class="entry-winner"><% if (entry.winner) { %>WINNER<% } %></span>
+					</li>
+			  <% }); %>
+			</ul>
+			</div>
+		 <button id="draw">Winner</button>
+		 </script>
+		 </div>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="underscore-min.js"></script>
+    <script src="backbone-min.js"></script>
+	<script src="backbone.localStorage.js"></script>
+    <script src="raffler_new.js"></script>
+</body>
+</html>
